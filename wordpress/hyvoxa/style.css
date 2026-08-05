@@ -1,0 +1,300 @@
+/*
+Theme Name: Hyvoxa
+Theme URI: https://hyvoxa.com
+Author: Hyvoxa
+Author URI: https://hyvoxa.com
+Description: Premium smart home automation theme for Hyvoxa. Features intelligent lighting, climate, security, entertainment, voice control and outdoor automation services with animated, SEO-optimized pages.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.5
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: hyvoxa
+Tags: smart-home, automation, business, seo-optimized, custom-colors, custom-menu, featured-images, threaded-comments, translation-ready
+*/
+
+/* ==========================================================================
+   Hyvoxa Theme - Base Styles
+   All Tailwind utilities are in assets/css/tailwind.css
+   This file holds WP-specific overrides and the custom design system
+   ========================================================================== */
+
+:root {
+  --color-gunmetal: #2e3532;
+  --color-amaranth: #8b2635;
+  --color-linen: #e0e2db;
+  --color-dust: #d2d4c8;
+  --color-tea: #d3efbd;
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+   --------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: #2e3532;
+  background-color: #e0e2db;
+  margin: 0;
+  line-height: 1.5;
+}
+
+::selection {
+  background: #8b2635;
+  color: #e0e2db;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+p { line-height: 1.75; }
+
+a { color: #8b2635; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; height: auto; }
+
+/* ---------------------------------------------------------------------------
+   Utility helpers (non-Tailwind)
+   --------------------------------------------------------------------------- */
+.text-balance { text-wrap: balance; }
+.text-pretty  { text-wrap: pretty;  }
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(224, 226, 219, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(224, 226, 219, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(46, 53, 50, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(46, 53, 50, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.glass {
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll reveal (used by main.js)
+   --------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------------------------------------------------------------------------
+   Prose (blog & legal content)
+   --------------------------------------------------------------------------- */
+.prose-hyvoxa h2 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2e3532;
+}
+.prose-hyvoxa h3 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: #2e3532;
+}
+.prose-hyvoxa p {
+  margin-bottom: 1.1rem;
+  line-height: 1.75;
+  color: #3a403d;
+}
+.prose-hyvoxa ul, .prose-hyvoxa ol {
+  padding-left: 1.4rem;
+  margin-bottom: 1.1rem;
+}
+.prose-hyvoxa ul { list-style: disc; }
+.prose-hyvoxa ol { list-style: decimal; }
+.prose-hyvoxa li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+  color: #3a403d;
+}
+.prose-hyvoxa strong { color: #2e3532; font-weight: 700; }
+.prose-hyvoxa a {
+  color: #8b2635;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+   Animations
+   --------------------------------------------------------------------------- */
+@keyframes hyvoxa-fade-up {
+  0%   { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes hyvoxa-fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes hyvoxa-fade-in-up {
+  0%   { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes hyvoxa-slide-down {
+  0%   { opacity: 0; transform: translateY(-12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes hyvoxa-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@keyframes hyvoxa-pulse-soft {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+@keyframes hyvoxa-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes hyvoxa-shimmer {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+@keyframes hyvoxa-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+@keyframes hyvoxa-ping {
+  0%        { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+.animate-fade-up    { animation: hyvoxa-fade-up 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+.animate-fade-in    { animation: hyvoxa-fade-in 0.8s ease both; }
+.animate-fade-in-up { animation: hyvoxa-fade-in-up 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+.animate-slide-down { animation: hyvoxa-slide-down 0.4s ease both; }
+.animate-float      { animation: hyvoxa-float 6s ease-in-out infinite; }
+.animate-pulse-soft { animation: hyvoxa-pulse-soft 3s ease-in-out infinite; }
+.animate-marquee    { animation: hyvoxa-marquee 40s linear infinite; }
+.animate-shimmer    { animation: hyvoxa-shimmer 2.5s ease-in-out infinite; }
+.animate-gradient   { animation: hyvoxa-gradient 12s ease infinite; }
+.animate-ping       { animation: hyvoxa-ping 3s cubic-bezier(0,0,0.2,1) infinite; }
+
+.animation-delay-150 { animation-delay: 0.15s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+.animation-delay-700 { animation-delay: 0.7s; }
+.animation-delay-1000 { animation-delay: 1s; }
+
+/* ---------------------------------------------------------------------------
+   Color utility helpers (minimal, supplementing compiled Tailwind)
+   --------------------------------------------------------------------------- */
+.bg-gunmetal       { background-color: #2e3532; }
+.bg-gunmetal-800   { background-color: #2e3532; }
+.bg-gunmetal-900   { background-color: #1d211f; }
+.bg-gunmetal-950   { background-color: #0f1110; }
+.bg-amaranth       { background-color: #8b2635; }
+.bg-amaranth-600   { background-color: #8b2635; }
+.bg-amaranth-700   { background-color: #7a212e; }
+.bg-linen          { background-color: #e0e2db; }
+.bg-linen-100      { background-color: #e0e2db; }
+.bg-dust           { background-color: #d2d4c8; }
+.bg-dust-300       { background-color: #d2d4c8; }
+.bg-tea            { background-color: #d3efbd; }
+.bg-tea-300        { background-color: #d3efbd; }
+.bg-tea-400        { background-color: #b4e294; }
+.bg-white          { background-color: #fff; }
+.bg-transparent    { background-color: transparent; }
+
+.text-gunmetal     { color: #2e3532; }
+.text-gunmetal-800 { color: #2e3532; }
+.text-gunmetal-500 { color: #5c6360; }
+.text-gunmetal-700 { color: #3a403d; }
+.text-amaranth     { color: #8b2635; }
+.text-amaranth-600 { color: #8b2635; }
+.text-linen        { color: #e0e2db; }
+.text-linen-100    { color: #e0e2db; }
+.text-linen-200    { color: #c9ccbf; }
+.text-linen-300    { color: #aab0ac; }
+.text-linen-400    { color: #878a7b; }
+.text-linen-500    { color: #6a6d5f; }
+.text-tea          { color: #d3efbd; }
+.text-tea-300      { color: #d3efbd; }
+.text-tea-400      { color: #b4e294; }
+.text-tea-600      { color: #71b347; }
+.text-white        { color: #fff; }
+
+.border-amaranth { border-color: #8b2635; }
+.border-tea      { border-color: #d3efbd; }
+.border-linen    { border-color: #e0e2db; }
+.border-gunmetal { border-color: #2e3532; }
+
+/* ---------------------------------------------------------------------------
+   WordPress core alignment
+   --------------------------------------------------------------------------- */
+.alignleft  { float: left;  margin-right: 1.5rem; margin-bottom: 1rem; }
+.alignright { float: right; margin-left: 1.5rem;  margin-bottom: 1rem; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.wp-caption { max-width: 100%; }
+.wp-caption-text { font-size: 0.875rem; color: #6a6d5f; text-align: center; margin-top: 0.5rem; }
+.screen-reader-text {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+.bypostauthor { display: block; }
+.sticky { display: block; }
+
+/* ---------------------------------------------------------------------------
+   Line clamp helper
+   --------------------------------------------------------------------------- */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------------------------
+   Scrollbar
+   --------------------------------------------------------------------------- */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #2e3532; }
+::-webkit-scrollbar-thumb {
+  background: #5c6360;
+  border-radius: 6px;
+  border: 2px solid #2e3532;
+}
+::-webkit-scrollbar-thumb:hover { background: #8b2635; }
+
+/* ---------------------------------------------------------------------------
+   Spacing utilities (commonly used in the React build)
+   --------------------------------------------------------------------------- */
+.pt-32 { padding-top: 8rem; }
+.pt-20 { padding-top: 5rem; }
+.pb-20 { padding-bottom: 5rem; }
+.pb-24 { padding-bottom: 6rem; }
+.py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+.py-24 { padding-top: 6rem; padding-bottom: 6rem; }

@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-color: #2e3532;
+    color: #2e3532;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  ::selection {
+    background: #8b2635;
+    color: #e0e2db;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(224, 226, 219, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(224, 226, 219, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(to right, rgba(46, 53, 50, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(46, 53, 50, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .glass {
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .prose-hyvoxa h2 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2e3532;
+  }
+  .prose-hyvoxa h3 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #2e3532;
+  }
+  .prose-hyvoxa p {
+    margin-bottom: 1.1rem;
+    line-height: 1.75;
+    color: #3a403d;
+  }
+  .prose-hyvoxa ul {
+    list-style: disc;
+    padding-left: 1.4rem;
+    margin-bottom: 1.1rem;
+  }
+  .prose-hyvoxa li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+    color: #3a403d;
+  }
+  .prose-hyvoxa strong {
+    color: #2e3532;
+    font-weight: 700;
+  }
+  .prose-hyvoxa a {
+    color: #8b2635;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #2e3532;
+}
+::-webkit-scrollbar-thumb {
+  background: #5c6360;
+  border-radius: 6px;
+  border: 2px solid #2e3532;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8b2635;
+}
